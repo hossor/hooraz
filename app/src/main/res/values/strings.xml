@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">hooraz</string>
+    <string name="signuptext">Don’t have an account? Click to <font color="#046848"> create a new account.</font> </string>
+    <string name="LoginString">Already have an account?<font color="#046848"> Log in</font></string>
+</resources>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/BackGroundLoginColor"
+    android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/Header"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/rectangle_6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="79dp"
+            android:layout_below="@+id/Header"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="151dp"
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/kufamblack"
+            android:text="Login"
+            android:textColor="#000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/Header"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="151dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="134dp"
+            android:fontFamily="@font/cactusfont"
+
+            android:gravity="center"
+
+            android:text="Cactus Shop"
+            android:textColor="#000"
+android:autoSizeTextType="uniform"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/UsernameLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Header"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:baselineAligned="false"
+            style="@style/InputLayout"
+
+            android:background="@drawable/usernamemailcorner"
+            android:hint="Username/Email"
+            app:hintTextColor="@color/Dark_Green"
+android:textColorHint="#000"
+            app:boxCornerRadiusTopEnd="60dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:singleLine="true"
+                    android:layout_below="@+id/Header"
+                    android:layout_alignParentBottom="true"
+
+                    android:background="@drawable/usernamemailcorner" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:textColorHint="#000"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_alignTop="@+id/UsernameLogin"
+            android:layout_marginTop="61dp"
+            android:background="@drawable/password"
+            android:hint="Password"
+            app:hintTextColor="@color/Dark_Green"
+         style="@style/InputLayout"
+            android:id="@+id/Password"
+
+            tools:ignore="RtlCompat">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="61dp"
+                    android:singleLine="true"
+                    android:background="@drawable/password"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:id="@+id/LoginButton"
+            android:layout_below="@+id/Password"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="41dp"
+            android:layout_marginLeft="41dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="41dp"
+            android:layout_marginRight="41dp"
+            android:background="@drawable/buttonbackground"
+            >
+
+                <ImageView
+                    android:layout_width="42dp"
+                    android:layout_height="33dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="19dp"
+                    android:layout_marginRight="19dp"
+                    android:layout_marginBottom="7dp"
+                    android:src="@drawable/group_16" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="6dp"
+android:layout_centerHorizontal="true"
+
+                    android:autoSizeTextType="uniform"
+                    android:gravity="center"
+                    android:text="LOG IN"
+                    android:textColor="#fff"
+                    tools:ignore="NotSibling" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/LoginButton"
+            android:id="@+id/ForgotPasswordtext"
+            android:layout_marginTop="10dp"
+            android:text="Forgot Password?"
+
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#515C6F" />
+
+        <TextView
+            android:id="@+id/LoginToSignUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:text="@string/signuptext" />
+</RelativeLayout>
