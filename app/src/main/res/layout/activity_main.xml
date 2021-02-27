@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:background="@color/BackGroundLoginColor"
     android:layout_height="match_parent">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="381dp">
         <View
             android:id="@+id/Header"
             android:layout_width="match_parent"
@@ -22,23 +25,6 @@
             android:layout_marginEnd="0dp"
             android:layout_marginRight="0dp"
             android:background="@drawable/rectangle_6" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="79dp"
-            android:layout_below="@+id/Header"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="48dp"
-            android:layout_marginEnd="151dp"
-            android:autoSizeTextType="uniform"
-            android:fontFamily="@font/kufamblack"
-            android:text="Login"
-            android:textColor="#000" />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,26 +46,36 @@
 
             android:text="Cactus Shop"
             android:textColor="#000"
-android:autoSizeTextType="uniform"
+            android:autoSizeTextType="uniform"
             />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/UsernameLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+</RelativeLayout>
+
+        <TextView
+            android:layout_width="117dp"
+            android:layout_height="79dp"
             android:layout_below="@+id/Header"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="125dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
+
+            android:autoSizeTextType="uniform"
+            android:fontFamily="@font/kufamblack"
+            android:text="Login"
+            android:textColor="#000" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/UsernameLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
             android:baselineAligned="false"
             style="@style/InputLayout"
 
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
             android:background="@drawable/usernamemailcorner"
             android:hint="Username/Email"
             app:hintTextColor="@color/Dark_Green"
@@ -88,7 +84,7 @@ android:textColorHint="#000"
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="61dp"
+                    android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:layout_below="@+id/Header"
                     android:layout_alignParentBottom="true"
@@ -99,27 +95,21 @@ android:textColorHint="#000"
         <com.google.android.material.textfield.TextInputLayout
             android:textColorHint="#000"
 
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_alignTop="@+id/UsernameLogin"
-            android:layout_marginTop="61dp"
+
             android:background="@drawable/password"
             android:hint="Password"
             app:hintTextColor="@color/Dark_Green"
          style="@style/InputLayout"
             android:id="@+id/Password"
-
+            android:layout_marginEnd="30dp"
+android:layout_marginStart="30dp"
             tools:ignore="RtlCompat">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="61dp"
+                    android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:background="@drawable/password"
                     />
@@ -130,15 +120,9 @@ android:textColorHint="#000"
             android:layout_height="46dp"
             android:id="@+id/LoginButton"
             android:layout_below="@+id/Password"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="41dp"
-            android:layout_marginLeft="41dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="41dp"
-            android:layout_marginRight="41dp"
+        android:layout_marginStart="35dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/buttonbackground"
             >
 
@@ -172,24 +156,25 @@ android:layout_centerHorizontal="true"
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/ForgotPasswordtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/LoginButton"
-            android:id="@+id/ForgotPasswordtext"
-            android:layout_marginTop="10dp"
-            android:text="Forgot Password?"
-
             android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+
             android:gravity="center"
+            android:text="Forgot Password?"
             android:textColor="#515C6F" />
 
         <TextView
             android:id="@+id/LoginToSignUp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
             android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="bottom"
             android:text="@string/signuptext" />
-</RelativeLayout>
+</LinearLayout>
