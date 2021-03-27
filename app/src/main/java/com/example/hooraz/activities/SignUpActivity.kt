@@ -1,4 +1,4 @@
- package com.example.hooraz
+ package com.example.hooraz.activities
 
 import android.app.ProgressDialog
 import android.content.Intent
@@ -6,15 +6,16 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.content.res.ResourcesCompat
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.hooraz.AnimationBetweenActivity
+import com.example.hooraz.R
+import com.example.hooraz.cryptoActivity
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import www.sanju.motiontoast.MotionToast
 
@@ -33,7 +34,7 @@ import www.sanju.motiontoast.MotionToast
     supportActionBar?.hide()
 
         SignUpToLogin.setOnClickListener{
-            var intent = Intent(this, MainActivity::class.java)
+            var intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             AnimationBetweenActivity.animateSlideRight(this)
             finish()
@@ -58,7 +59,9 @@ progressDialog.setCancelable(true)
                 Response.Listener { response ->
                     Log.d("Responsee", response.toString())
                     var status = response.toString()
-                    var typeface :Typeface? = ResourcesCompat.getFont(this,R.font.helvetica_regular)
+                    var typeface :Typeface? = ResourcesCompat.getFont(this,
+                        R.font.helvetica_regular
+                    )
 
                     if (status.contains("OK")) {
 progressDialog.setMessage("کاربر با موفقیت ساخته شد")
@@ -82,7 +85,7 @@ progressDialog.setMessage("کاربر با موفقیت ساخته شد")
                         progressDialog.hide()
                         progressDialog.dismiss()
                         MotionToast.Companion.createColorToast(this
-                            ,"خطات"
+                            ,"خطا"
                             ,"ایمیل یا نام کاربری وارد شده تکراری میباشد",
                             MotionToast.Companion.TOAST_ERROR,
                             MotionToast.Companion.GRAVITY_BOTTOM,
@@ -103,7 +106,7 @@ queue.add(stringRequest)
 
     }
     override fun onBackPressed() {
-        var intent = Intent(forgotPassword@ this, MainActivity::class.java)
+        var intent = Intent(forgotPassword@ this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

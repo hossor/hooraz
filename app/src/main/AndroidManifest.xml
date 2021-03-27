@@ -14,10 +14,10 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".cryptoActivity"></activity>
         <activity android:name=".CustomDialog" />
-        <activity android:name=".forgotPassword" />
+        <activity android:name=".activities.forgotPassword" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.SignUpActivity" />
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
