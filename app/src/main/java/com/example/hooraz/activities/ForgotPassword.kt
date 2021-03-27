@@ -1,9 +1,10 @@
-package com.example.hooraz
+package com.example.hooraz.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.example.hooraz.R
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 
 class forgotPassword : AppCompatActivity() {
@@ -19,14 +20,14 @@ class forgotPassword : AppCompatActivity() {
         }
         supportActionBar?.hide()
         ForogotToLogin.setOnClickListener{
-            var intent = Intent(forgotPassword@this , MainActivity::class.java)
+            var intent = Intent(forgotPassword@this , LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
 
     override fun onBackPressed() {
-        var intent = Intent(forgotPassword@this , MainActivity::class.java)
+        var intent = Intent(forgotPassword@this , LoginActivity::class.java)
         startActivity(intent)
         finish()
     }
