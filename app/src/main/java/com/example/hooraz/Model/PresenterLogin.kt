@@ -1,6 +1,9 @@
 package com.example.hooraz.Model
 
+import android.app.ProgressDialog
+import android.content.Context
 import android.text.TextUtils
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
@@ -16,22 +19,36 @@ class PresenterLogin : LoginPresenter, AppCompatActivity {
         this.loginView = loginView
     }
 
-    override fun preFormLogin(username: String, password: String) {
+    override fun preFormLogin(username: String, password: String , context: Context) {
+
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             loginView.loginValidations()
         } else {
-            var queue = Volley.newRequestQueue(this)
+            val progressDialog = ProgressDialog(context)
+            progressDialog.setTitle("لطفا منتظر بمانید...");
+            progressDialog.setMessage("در حال بارگذاری...");
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.show()
+            var queue = Volley.newRequestQueue(context)
             var url = "http://horaz.ir/login.php?username=${username}&password=${password}"
             var stringRequest = StringRequest(Request.Method.GET,
                 url,
                 Response.Listener { response ->
                     var status = response.toString()
+                    Log.d("Response" , status)
                     if (status.contains("Login successfully"))
-                    {
+                    {   progressDialog.hide()
+                        progressDialog.dismiss()
                         loginView.loginSuccess()
+
                     }
-                    else if (status.contains("Login Faild")){
+                    else if (status.contains("Login faild")){
+
+                        progressDialog.dismiss()
+                        progressDialog.hide()
                         loginView.loginError()
+
+
                     }
                 }, Response.ErrorListener {
 

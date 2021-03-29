@@ -112,6 +112,7 @@ android:layout_marginStart="30dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
+                    android:id="@+id/passwordEdit"
                     android:background="@drawable/password"
                     />
         </com.google.android.material.textfield.TextInputLayout>

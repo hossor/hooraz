@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.example.hooraz.Model.PresenterLogin
 import com.example.hooraz.R
 import com.example.hooraz.Views.LoginView
 import com.example.hooraz.cryptoActivity
@@ -13,10 +14,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 import www.sanju.motiontoast.MotionToast
 
 
-class LoginActivity : AppCompatActivity() , LoginView{
+open class LoginActivity : AppCompatActivity() , LoginView{
+    lateinit var presenterLogin:PresenterLogin
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        presenterLogin = PresenterLogin(LoginActivity@this)
         window.decorView.apply {
             // Hide both the navigation bar and the status bar.
             // SYSTEM_UI_FLAG_FULLSCREEN is only available on Android 4.1 and higher, but as
@@ -38,7 +41,7 @@ finish()
 
         }
         LoginButton.setOnClickListener {
-            loginSuccess()
+            presenterLogin.preFormLogin(UsernameLoginedit.text.toString() , passwordEdit.text.toString() , this)
         }
 
     }
@@ -48,6 +51,8 @@ finish()
     }
 
     override fun loginSuccess() {
+
+
         var intent = Intent(this , cryptoActivity::class.java)
         var typeface : Typeface? = ResourcesCompat.getFont(this,
             R.font.helvetica_regular
@@ -64,6 +69,14 @@ finish()
         finish()    }
 
     override fun loginError() {
-        TODO("Not yet implemented")
-    }
+        var typeface : Typeface? = ResourcesCompat.getFont(this,
+            R.font.helvetica_regular
+        )
+        MotionToast.Companion.createColorToast(this
+            ,"اخطار"
+            ,"ورود ناموفق",
+            MotionToast.Companion.TOAST_ERROR,
+            MotionToast.Companion.GRAVITY_BOTTOM,
+            MotionToast.Companion.LONG_DURATION,
+            typeface)    }
 }
