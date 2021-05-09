@@ -11,7 +11,6 @@ import com.example.hooraz.AnimationBetweenActivity
 import com.example.hooraz.Model.SignupModel
 import com.example.hooraz.R
 import com.example.hooraz.Views.SignupView
-import com.example.hooraz.cryptoActivity
 import kotlinx.android.synthetic.main.activity_sign_up.*
 import www.sanju.motiontoast.MotionToast
 

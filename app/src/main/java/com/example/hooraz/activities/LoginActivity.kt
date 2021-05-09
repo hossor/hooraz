@@ -9,7 +9,6 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.hooraz.Model.PresenterLogin
 import com.example.hooraz.R
 import com.example.hooraz.Views.LoginView
-import com.example.hooraz.cryptoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import www.sanju.motiontoast.MotionToast
 
