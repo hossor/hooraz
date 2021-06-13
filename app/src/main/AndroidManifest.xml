@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hooraz"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.CoinActivity"></activity>
+        <activity android:name=".activities.CoinInfo"></activity>
+        <activity android:name=".activities.CoinActivity" />
         <activity android:name=".activities.cryptoActivity" />
         <activity android:name=".CustomDialog" />
         <activity android:name=".activities.forgotPassword" />

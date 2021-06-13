@@ -51,6 +51,7 @@ class PresenterLogin : LoginPresenter, AppCompatActivity {
 
                     }
                 }, Response.ErrorListener {
+                    Log.d("Response" , it.message.toString())
 
                 }
             )

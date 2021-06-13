@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.coinsoflist.*
 import org.json.JSONArray
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.abs
 
 class cryptoActivity : AppCompatActivity(), ListCoinView,CoinsAdapter.OnCoinClickListener{
     lateinit var ListCoinModel: ListCoinModel
@@ -42,31 +43,46 @@ class cryptoActivity : AppCompatActivity(), ListCoinView,CoinsAdapter.OnCoinClic
         var ss = "ss"
         var queue = Volley.newRequestQueue(applicationContext)
         var url =
-            "https://api.nomics.com/v1/currencies/ticker?key=1df9b33bff3f2c4dd9831f949856e338&ids=&interval=1d,30d&convert=USD&per-page=100&page=1"
+            "https://api.nomics.com/v1/currencies/ticker?key=1df9b33bff3f2c4dd9831f949856e338&sort=rank&status=active&per-page=50"
         var stringRequest =
             StringRequest(Request.Method.GET, url, object : Response.Listener<String> {
                 override fun onResponse(response: String?) {
+                    try {
+
+
                     Log.d("CoinStringJson", response.toString())
                     var jsonCoins = JSONArray(response)
                     var jsonCount = jsonCoins.length()
                     coinslist.clear()
-                    for (i in 0..jsonCount - 1) {
+                    for (i in 0..jsonCount-1) {
                         var ID = jsonCoins.getJSONObject(i).optString("symbol")
                         var Name = jsonCoins.getJSONObject(i).optString("name")
                         var Price = jsonCoins.getJSONObject(i).optString("price")
-                        var PriceChange = ""
+
+
                         var oneDayInfo = jsonCoins.getJSONObject(i).optString("1d")
-                        Log.d("KKKK", oneDayInfo)
-                        var json1DInfo = JSONArray("["+oneDayInfo+"]")
-                        var json1DInfoLenght = json1DInfo.length()
+                        if (oneDayInfo.length != 0) {
+                            Log.d("KKKK", oneDayInfo.length.toString())
+                            var json1DInfo = JSONArray("[" + oneDayInfo + "]")
+                            var json1DInfoLenght = json1DInfo.length()
+                            var PriceChange = json1DInfo.getJSONObject(0).optString("price_change")
+                            Log.d("KKKK", PriceChange)
 
-                            PriceChange = json1DInfo.getJSONObject(0).optString("price_change_pct")
-                        var floatPriceChange = PriceChange.toFloat() * 100
+                            var floatPriceChange =
+                                ((PriceChange.toFloat()) / (abs(Price.toFloat()))) * 100
 
 
-                        val Model = CoinModel(ID + "", Name + "", Price + "", floatPriceChange.toString() )
-                        coinslist.add(Model)
-                        Log.d("MODDEl", ID)
+                            val Model = CoinModel(
+                                ID + "",
+                                Name + "",
+                                Price + "",
+                                floatPriceChange.toString()
+                            )
+                            coinslist.add(Model)
+                            Log.d("CoinsInList2", coinslist.size.toString())
+
+                            Log.d("MODDEl", ID)
+                        }
                     }
                     Log.d("CoinsInList2", coinslist.size.toString())
 
@@ -78,6 +94,9 @@ class cryptoActivity : AppCompatActivity(), ListCoinView,CoinsAdapter.OnCoinClic
                         layoutManager = LinearLayoutManager(this@cryptoActivity)
                         itemAnimator = DefaultItemAnimator()
                         adapter = CoinsAdapter(coinslist , this@cryptoActivity)
+
+                    }}catch (ex:Exception){
+                        Log.e("KKKK" , ex.message.toString())
 
                     }
 
@@ -91,10 +110,10 @@ class cryptoActivity : AppCompatActivity(), ListCoinView,CoinsAdapter.OnCoinClic
 
     override fun onCoinClick(item: CoinModel, position: Int) {
 
-        var coinIntent = Intent(this , CoinActivity::class.java)
-        coinIntent.putExtra("coinName" , item.NameCoin)
+        var coinIntent = Intent(this , CoinInfo::class.java)
+        coinIntent.putExtra("coinName" , item.IDName)
         startActivity(coinIntent)
-Toast.makeText(this , ""+item.NameCoin +" " , Toast.LENGTH_LONG).show()
+Toast.makeText(this , ""+item.IDName +" " , Toast.LENGTH_LONG).show()
     }
 
 
