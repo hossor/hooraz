@@ -31,7 +31,7 @@ class CoinModel : CoinPresenter {
                 if (response.toString().isNotEmpty()) {
                     var jsonCoin: JSONArray = JSONArray(response)
 
-                    CoinView.CoinChangesSuccesfully(jsonCoin)
+                    CoinView.CoinChange(jsonCoin)
                 }
 
             },
