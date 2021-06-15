@@ -14,6 +14,7 @@ import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import com.google.gson.JsonArray
 import kotlinx.android.synthetic.main.activity_coin.*
 import org.json.JSONArray
+import kotlin.math.abs
 
 class CoinInfo : AppCompatActivity(), CoinView {
 
@@ -52,14 +53,32 @@ class CoinInfo : AppCompatActivity(), CoinView {
 
             this.CoinName.text = info.name
 
-if (info.url.contains("svg")){
-            GlideToVectorYou.init()
-                .with(CoinInfo@ this)
-                .load(Uri.parse(info.url), CoinIMG)
-                }
-            else{
-                Glide.with(CoinInfo@this).load(info.url).into(CoinIMG)
+            if (info.url.contains("svg")) {
+                GlideToVectorYou.init()
+                    .with(CoinInfo@ this)
+                    .load(Uri.parse(info.url), CoinIMG)
+
+
+            } else {
+                Glide.with(CoinInfo@ this).load(info.url).into(CoinIMG)
             }
+            Log.d("ErrorCoin", info.day)
+
+            var oneday = JSONArray("[" + info.day + "]").getJSONObject(0).optString("price_change")
+            val week = JSONArray("[" + info.week + "]").getJSONObject(0).optString("price_change")
+            val month = JSONArray("[" + info.month + "]").getJSONObject(0).optString("price_change")
+            val year = JSONArray("[" + info.year + "]").getJSONObject(0).optString("price_change")
+            val alltime =
+                JSONArray("[" + info.alltime + "]").getJSONObject(0).optString("price_change")
+            Log.d("oneday", oneday)
+            onedayTextView.text =
+                (((oneday.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
+            weekTextview.text = (((week.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
+            monthTextView.text =
+                (((month.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
+            yearTextView.text = (((year.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
+            ytdTextView.text =
+                (((alltime.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
         } catch (ex: Exception) {
             Log.e("ErrorCoin", ex.message.toString())
         }

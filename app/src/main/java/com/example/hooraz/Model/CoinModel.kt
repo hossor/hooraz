@@ -22,7 +22,7 @@ class CoinModel : CoinPresenter {
     override fun CoinChanges(CoinName: String, context: Context) {
         var queue = Volley.newRequestQueue(context)
         var url =
-            "https://api.nomics.com/v1/currencies/ticker?key=1df9b33bff3f2c4dd9831f949856e338&ids=" + CoinName.toUpperCase() + "&interval=1d,30d&convert=USD&per-page=200&page=1"
+            "https://api.nomics.com/v1/currencies/ticker?key=1df9b33bff3f2c4dd9831f949856e338&ids=" + CoinName.toUpperCase() + "&interval=&convert=USD&per-page=200&page=1"
         var stringRequest = StringRequest(
             Request.Method.GET,
             url,
