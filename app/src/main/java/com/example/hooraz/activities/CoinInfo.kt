@@ -79,6 +79,8 @@ class CoinInfo : AppCompatActivity(), CoinView {
             yearTextView.text = (((year.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
             ytdTextView.text =
                 (((alltime.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
+            PriceTextView3.text = info.price
+
         } catch (ex: Exception) {
             Log.e("ErrorCoin", ex.message.toString())
         }
