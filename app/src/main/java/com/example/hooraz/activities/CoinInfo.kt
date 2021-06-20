@@ -1,5 +1,6 @@
 package com.example.hooraz.activities
 
+import android.graphics.Color
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,25 +69,81 @@ class CoinInfo : AppCompatActivity(), CoinView {
             }
             Log.d("ErrorCoin", info.day)
             //Convert prices to Jason
-            var oneday = JSONArray("[" + info.day + "]").getJSONObject(0).optString("price_change")
-            val week = JSONArray("[" + info.week + "]").getJSONObject(0).optString("price_change")
-            val month = JSONArray("[" + info.month + "]").getJSONObject(0).optString("price_change")
-            val year = JSONArray("[" + info.year + "]").getJSONObject(0).optString("price_change")
-            val alltime =
+            var oneday = (JSONArray("[" + info.day + "]").getJSONObject(0).optString("price_change")
+                .toFloat()).toDouble().toString()
+            var week = JSONArray("[" + info.week + "]").getJSONObject(0).optString("price_change")
+            var month = JSONArray("[" + info.month + "]").getJSONObject(0).optString("price_change")
+            var year = JSONArray("[" + info.year + "]").getJSONObject(0).optString("price_change")
+            var alltime =
                 JSONArray("[" + info.alltime + "]").getJSONObject(0).optString("price_change")
             Log.d("oneday", oneday)
 
-
+            oneday =
+                "%.2f".format(((oneday.toFloat()) / (abs(info.price.toFloat()))) * 100).toDouble()
+                    .toString();
+            week =
+                "%.2f".format((((week.toFloat()) / (abs(info.price.toFloat()))) * 100)).toDouble()
+                    .toString();
+            month =
+                "%.2f".format((((month.toFloat()) / (abs(info.price.toFloat()))) * 100)).toDouble()
+                    .toString();
+            year =
+                "%.2f".format((((year.toFloat()) / (abs(info.price.toFloat()))) * 100)).toDouble()
+                    .toString();
+            alltime = "%.2f".format((((alltime.toFloat()) / (abs(info.price.toFloat()))) * 100))
+                .toDouble().toString();
 //Convert price changes to percentages
-            onedayTextView.text =
-                (((oneday.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
-            weekTextview.text = (((week.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
-            monthTextView.text =
-                (((month.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
-            yearTextView.text = (((year.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
-            ytdTextView.text =
-                (((alltime.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
-            PriceTextView3.text = info.price
+            onedayTextView.text = oneday
+                weekTextview.text = week
+
+                monthTextView.text = month
+
+                yearTextView.text = year
+
+                ytdTextView.text = alltime
+            //change color one day
+            if (oneday.contains("-")){
+                onedayTextView.setTextColor( Color.parseColor("#FF0000"))
+            }else{
+                onedayTextView.setTextColor( Color.parseColor("#37FF00"))
+                onedayTextView.text = "+$oneday"
+
+            }
+            //change color week
+            if (week.contains("-")){
+                weekTextview.setTextColor( Color.parseColor("#FF0000"))
+            }else{
+                weekTextview.setTextColor( Color.parseColor("#37FF00"))
+                weekTextview.text = "+$week"
+
+            }
+            //change color month
+            if (month.contains("-")){
+                monthTextView.setTextColor( Color.parseColor("#FF0000"))
+            }else{
+                monthTextView.setTextColor( Color.parseColor("#37FF00"))
+                monthTextView.text = "+$month"
+
+            }
+            //change color one day
+            if (year.contains("-")){
+                yearTextView.setTextColor( Color.parseColor("#FF0000"))
+            }else{
+                yearTextView.setTextColor( Color.parseColor("#37FF00"))
+                yearTextView.text = "+$year"
+
+            }
+            //change color alltime
+            if (alltime.contains("-")){
+                ytdTextView.setTextColor( Color.parseColor("#FF0000"))
+            }else{
+                ytdTextView.setTextColor( Color.parseColor("#37FF00"))
+                ytdTextView.text = "+$alltime"
+
+            }
+            var price = "%.2f".format(info.price.toFloat()).toDouble().toString()
+            Log.d("CoinPrice" , price)
+            PriceTextView3.text = price
 
         } catch (ex: Exception) {
             Log.e("ErrorCoin", ex.message.toString())

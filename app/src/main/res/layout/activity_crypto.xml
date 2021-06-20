@@ -22,7 +22,7 @@
             app:indicatorRadius="10dp"
 app:indicatorColor="@color/colorIndicator"
             app:menu="@menu/navigationmenu"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingClass,MissingConstraints" />
 </FrameLayout>
         <FrameLayout
             android:id="@+id/frag"

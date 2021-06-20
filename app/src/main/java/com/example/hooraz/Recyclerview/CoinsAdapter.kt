@@ -1,6 +1,8 @@
 package com.example.hooraz.Recyclerview
 
 import android.content.Context
+import android.graphics.Color
+import android.icu.math.BigDecimal
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +14,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hooraz.R
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
-
+import java.lang.String.format
+import kotlin.math.round
 
 class CoinsAdapter(
     private var CoinList: ArrayList<CoinModel>,
@@ -30,7 +33,17 @@ class CoinsAdapter(
             NameCoin.text = Coin.NameCoin
             IDCoin.text = Coin.IDName
             Price.text = Coin.Price
-            PriceChange.text = Coin.PriceChange
+            var changeCoinPrice = "%.2f".format(Coin.PriceChange.toFloat()).toDouble().toString()
+            PriceChange.text = changeCoinPrice
+            if (changeCoinPrice.contains("-"))
+            {
+                PriceChange.setTextColor( Color.parseColor("#FF0000"))
+            }
+            else{
+                PriceChange.setTextColor( Color.parseColor("#37FF00"))
+                PriceChange.text = "+${changeCoinPrice}"
+            }
+
 
             if (Coin.logo_url.contains("svg")) {
                 GlideToVectorYou.init()

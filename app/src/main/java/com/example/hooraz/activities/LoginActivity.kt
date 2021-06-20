@@ -33,14 +33,14 @@ open class LoginActivity : AppCompatActivity() , LoginView{
             startActivity(intent)
             finish()
         }
-        ForgotPasswordtext.setOnClickListener{
-            var intent = Intent(MainActivity@this , forgotPassword::class.java)
-            startActivity(intent)
-finish()
-
-        }
+//        ForgotPasswordtext.setOnClickListener{
+//            var intent = Intent(MainActivity@this , forgotPassword::class.java)
+//            startActivity(intent)
+//finish()
+//
+//        }
         LoginButton.setOnClickListener {
-            presenterLogin.preFormLogin(UsernameLoginedit.text.toString() , passwordEdit.text.toString() , this)
+            presenterLogin.preFormLogin(UsernameLoginedit.text.toString() , passwordEdit.text.toString(), this)
         }
 
     }
