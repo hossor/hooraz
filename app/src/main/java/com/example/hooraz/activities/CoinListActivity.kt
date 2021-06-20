@@ -8,6 +8,7 @@ import com.example.hooraz.Fragments.Coinlist
 import com.example.hooraz.Model.ListCoinModel
 import com.example.hooraz.R
 import com.example.hooraz.Fragments.news
+import com.example.hooraz.ProfileFragment
 import kotlinx.android.synthetic.main.activity_crypto.*
 import kotlinx.android.synthetic.main.coinsoflist.*
 import java.util.*
@@ -47,6 +48,12 @@ class cryptoActivity : AppCompatActivity(){
                 ft.replace(R.id.frag , news)
                 ft.commit()
 
+            }
+            else if(postion == "2")
+            {
+                var profileFragment = ProfileFragment()
+                ft.replace(R.id.frag , profileFragment)
+                ft.commit()
             }
         }
 

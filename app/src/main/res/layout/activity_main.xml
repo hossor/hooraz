@@ -7,9 +7,25 @@
     android:orientation="vertical"
     android:background="@color/BackGround"
     android:layout_height="match_parent">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="381dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            app:srcCompat="@drawable/cryptoverse" />
+
+                </RelativeLayout>
+
+        </RelativeLayout>
 
         <TextView
             android:layout_width="117dp"
@@ -36,21 +52,24 @@
 
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:background="@drawable/usernamemailcorner"
             android:hint="Username/Email"
             app:hintTextColor="@color/Dark_Green"
-android:textColorHint="#000"
-            app:boxCornerRadiusTopEnd="60dp">
+            android:backgroundTint="#fff"
+
+
+            >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:id="@+id/UsernameLoginedit"
+                    android:background="@color/BackGround"
                     android:layout_below="@+id/Header"
+                    style="@style/TextAppearance.App.TextInputLayout"
                     android:layout_alignParentBottom="true"
 
-                    android:background="@drawable/usernamemailcorner" />
+                    />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +78,6 @@ android:textColorHint="#000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:background="@drawable/password"
             android:hint="Password"
             app:hintTextColor="@color/Dark_Green"
          style="@style/InputLayout"
@@ -73,7 +91,6 @@ android:layout_marginStart="30dp"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:id="@+id/passwordEdit"
-                    android:background="@drawable/password"
                     />
         </com.google.android.material.textfield.TextInputLayout>
 
