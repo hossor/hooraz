@@ -20,7 +20,7 @@ class PresenterLogin : LoginPresenter, AppCompatActivity {
     }
 
     override fun preFormLogin(username: String, password: String , context: Context) {
-
+//check Login
         if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             loginView.loginValidations()
         } else {

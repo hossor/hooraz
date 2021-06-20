@@ -22,7 +22,7 @@ class SignupModel : SignupPresenter {
         progressDialog.setMessage("در حال بارگذاری...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
-
+            //Check registration
             try {
                 progressDialog.show()
                 progressDialog.setCancelable(true)

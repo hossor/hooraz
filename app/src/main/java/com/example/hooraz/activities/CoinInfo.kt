@@ -26,6 +26,7 @@ class CoinInfo : AppCompatActivity(), CoinView {
         coinModel = CoinModel(CoinModel@ this)
         var extraCoin = intent.extras
         if (extraCoin != null) {
+            //Send currency name to receive information
             var name = extraCoin.getString("coinName").toString()
             coinModel.CoinChanges(name, this)
 
@@ -40,6 +41,8 @@ class CoinInfo : AppCompatActivity(), CoinView {
                 "CoinInfo",
                 "Load ${jsonCoin.optJSONObject(0).optString("logo_url")} successfully"
             )
+
+            //Receive currency information
             var info: Info = Info(
                 jsonCoin.optJSONObject(0).optString("logo_url"),
                 jsonCoin.optJSONObject(0).optString("name"),
@@ -51,8 +54,9 @@ class CoinInfo : AppCompatActivity(), CoinView {
                 jsonCoin.optJSONObject(0).optString("ytd")
             )
 
+            //set name currency
             this.CoinName.text = info.name
-
+            //check svg format
             if (info.url.contains("svg")) {
                 GlideToVectorYou.init()
                     .with(CoinInfo@ this)
@@ -63,7 +67,7 @@ class CoinInfo : AppCompatActivity(), CoinView {
                 Glide.with(CoinInfo@ this).load(info.url).into(CoinIMG)
             }
             Log.d("ErrorCoin", info.day)
-
+            //Convert prices to Jason
             var oneday = JSONArray("[" + info.day + "]").getJSONObject(0).optString("price_change")
             val week = JSONArray("[" + info.week + "]").getJSONObject(0).optString("price_change")
             val month = JSONArray("[" + info.month + "]").getJSONObject(0).optString("price_change")
@@ -71,6 +75,9 @@ class CoinInfo : AppCompatActivity(), CoinView {
             val alltime =
                 JSONArray("[" + info.alltime + "]").getJSONObject(0).optString("price_change")
             Log.d("oneday", oneday)
+
+
+//Convert price changes to percentages
             onedayTextView.text =
                 (((oneday.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()
             weekTextview.text = (((week.toFloat()) / (abs(info.price.toFloat()))) * 100).toString()

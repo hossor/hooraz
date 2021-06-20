@@ -3,56 +3,83 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="70dp"
+    android:layout_margin="5dp"
+    android:background="@color/carviewBackGround"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/carviewBackGround"
+        >
 
-        
 
-        <TextView
-            android:id="@+id/IdCoin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/coinView"
+            android:layout_width="41dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
 
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:gravity="left"
-            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/IdCoin"
+            app:layout_constraintHorizontal_bias="0.076"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/NameCoin"
             android:layout_width="0dp"
             android:layout_height="19dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="5dp"
             android:gravity="left"
+            android:textColor="@color/white"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/IdCoin"
+            app:layout_constraintVertical_bias="0.272"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/IdCoin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="12dp"
+            android:gravity="left"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/IdCoin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/IdCoin"
+            android:textColor="@color/white"
+
             tools:ignore="MissingConstraints" />
 
         <TextView
             android:id="@+id/PriceChange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/NameCoin"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/price"
+            app:layout_constraintTop_toTopOf="@+id/NameCoin"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

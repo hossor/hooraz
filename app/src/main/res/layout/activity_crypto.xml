@@ -6,12 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".activities.cryptoActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyClerViewCoins"
+<FrameLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    android:id="@+id/fram">
+        <me.ibrahimsn.lib.SmoothBottomBar
+            android:id="@+id/bottomBar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="60dp"
+            app:backgroundColor="@color/navigation"
+            android:background="@drawable/cornerbottombar"
+            app:indicatorRadius="10dp"
+app:indicatorColor="@color/colorIndicator"
+            app:menu="@menu/navigationmenu"
+            tools:ignore="MissingConstraints" />
+</FrameLayout>
+        <FrameLayout
+            android:id="@+id/frag"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/fram"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fram"
             app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
