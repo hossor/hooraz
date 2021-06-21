@@ -12,7 +12,7 @@
         />
     <item
         android:id="@+id/profile"
-        android:title="پروفای ل"
+        android:title="پروفایل"
         android:icon="@drawable/ic_baseline_person_24"
         />
 </menu>

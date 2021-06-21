@@ -64,6 +64,7 @@ open class LoginActivity : AppCompatActivity() , LoginView{
             MotionToast.Companion.GRAVITY_BOTTOM,
             MotionToast.Companion.LONG_DURATION,
             typeface)
+
         startActivity(intent)
         finish()    }
 
